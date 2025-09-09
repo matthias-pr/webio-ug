@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - WEBIO UG</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a1f29;
+            --bg-tertiary: #252b38;
+            --text-primary: #e8e9ea;
+            --text-secondary: #b8bcc0;
+            --text-muted: #8a9199;
+            --accent-green: #6ab04c;
+            --accent-green-dark: #5a9e3c;
+            --border-color: #2d3748;
+            --warning-bg: #2d3748;
+            --warning-border: #f39c12;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-green);
+        }
+
+        main {
+            background-color: var(--bg-secondary);
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        .company-info {
+            background-color: var(--bg-tertiary);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        .info-value {
+            color: var(--text-secondary);
+        }
+
+        .contact-info {
+            background-color: var(--bg-tertiary);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .contact-info a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-green-dark);
+        }
+
+        .reminder-box {
+            background-color: var(--warning-bg);
+            border: 2px solid var(--warning-border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .reminder-box h3 {
+            color: var(--warning-border);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .reminder-box p {
+            color: var(--text-secondary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">WEBIO</a>
+            <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1>Impressum</h1>
+
+            <div class="company-info">
+                <h2>Angaben gemäß § 5 TMG</h2>
+                <div class="info-grid">
+                    <span class="info-label">Firma:</span>
+                    <span class="info-value">WEBIO UG (haftungsbeschränkt)</span>
+                    
+                    <span class="info-label">Anschrift:</span>
+                    <span class="info-value">Lenzfrieder Str. 14<br>80637 München<br>Deutschland</span>
+                    
+                    <span class="info-label">Geschäftsführer:</span>
+                    <span class="info-value">Matthias Zehmisch</span>
+                    
+                    <span class="info-label">Handelsregister:</span>
+                    <span class="info-value">HRB 302986<br>Amtsgericht München</span>
+                </div>
+            </div>
+
+            <div class="reminder-box">
+                <h3>⚠️ Erinnerung</h3>
+                <p><strong>Steuernummer noch nicht vorhanden!</strong><br>
+                Bitte ergänzen Sie die Steuernummer sobald diese vom Finanzamt zugeteilt wurde.</p>
+            </div>
+
+            <div class="contact-info">
+                <h2>Kontakt</h2>
+                <div class="info-grid">
+                    <span class="info-label">Telefon:</span>
+                    <span class="info-value"><a href="tel:+4915121221793">0151 2122 1793</a></span>
+                    
+                    <span class="info-label">E-Mail:</span>
+                    <span class="info-value"><a href="mailto:matthias@webio-ug.de">matthias@webio-ug.de</a></span>
+                </div>
+            </div>
+
+            <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+            <p>
+                Matthias Zehmisch<br>
+                Lenzfrieder Str. 14<br>
+                80637 München
+            </p>
+
+            <h2>Haftung für Inhalte</h2>
+            <p>
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+            </p>
+            <p>
+                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+            </p>
+
+            <h2>Haftung für Links</h2>
+            <p>
+                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+            </p>
+            <p>
+                Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+            </p>
+
+            <h2>Urheberrecht</h2>
+            <p>
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+            </p>
+            <p>
+                Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+            </p>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">&copy; 2024 WEBIO UG (haftungsbeschränkt). Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
