@@ -459,6 +459,7 @@
                 <li><a href="#about">Über uns</a></li>
                 <li><a href="#skills">Services</a></li>
                 <li><a href="#projects">Projekte</a></li>
+                <li><a href="#tools">Tools</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
@@ -481,18 +482,516 @@
                 <div class="about-content fade-in">
                     <p>
                         Hallo, ich bin <span class="highlight">Matthias Zehmisch</span>, Geschäftsführer der WEBIO UG. 
-                        Als unabhängiger Biologe und Entwickler bringe ich mit KI-Unterstützung Ihre digitalen Ideen zum Leben - 
+                        Als Biologe und Entwickler bringe ich mit KI-Unterstützung Ihre digitalen Ideen zum Leben - 
                         speziell im Bereich der <span class="highlight">Life Sciences</span>.
                     </p>
                     <p>
-                        Mit langjähriger Erfahrung in der Webentwicklung erstelle ich maßgeschneiderte 
+                        Als Biologe mit sehr gutem Abschluß an der LMU München und mit langjähriger 
+                        Erfahrung in der Webentwicklung erstelle ich maßgeschneiderte 
                         Lösungen, die nicht nur technisch überzeugen, sondern auch die spezifischen 
                         Anforderungen wissenschaftlicher Anwendungen erfüllen. Mein Fokus liegt auf 
-                        modernen Technologien, sauberem Code und exzellenter User Experience.
+                        modernen Technologien, also insbesondere auf der Anpassung, Einbindung und Nutzung KI-basierter Tools.
                     </p>
                 </div>
             </div>
         </section>
+
+        <section id="tools" class="section">
+            <div class="container">
+                <h2>Interaktive Biotech Tools</h2>
+                <p class="section-subtitle">
+                    Testen Sie diese wissenschaftlichen Web-Tools und erleben Sie, welche interaktiven Features ich für Ihre Website entwickeln kann
+                </p>
+
+                <div class="tools-tabs">
+                    <button class="tool-tab active" data-tool="dna">DNA Analyse</button>
+                    <button class="tool-tab" data-tool="protein">Berechnung von Proteingewicht</button>
+                    <button class="tool-tab" data-tool="primer">Primer Designer</button>
+                </div>
+
+                <!-- DNA Analyzer Tool -->
+                <div class="tool-content active" id="dna-tool">
+                    <div class="tool-card fade-in">
+                        <h3>DNA Sequenzanalyse</h3>
+                        <p class="tool-description">Analysieren Sie DNA-Sequenzen: GC-Gehalt, Schmelztemperatur, Reverse Complement und mehr</p>
+                        
+                        <div class="tool-input-group">
+                            <label for="dna-sequence">DNA Sequenz eingeben:</label>
+                            <textarea id="dna-sequence" rows="4" placeholder="z.B. ATGCGATCGATCG..."></textarea>
+                            <button class="cta-button" onclick="analyzeDNA()">Analysieren</button>
+                        </div>
+
+                        <div id="dna-results" class="tool-results"></div>
+                    </div>
+                </div>
+
+                <!-- Protein Calculator Tool -->
+                <div class="tool-content" id="protein-tool">
+                    <div class="tool-card fade-in">
+                        <h3>Protein Molecular Weight Calculator</h3>
+                        <p class="tool-description">Berechnen Sie Molekulargewicht und Eigenschaften von Proteinen/Peptiden</p>
+                        
+                        <div class="tool-input-group">
+                            <label for="protein-sequence">Aminosäure-Sequenz (Ein-Buchstaben-Code):</label>
+                            <textarea id="protein-sequence" rows="4" placeholder="z.B. MKTAYIAKQRQ..."></textarea>
+                            <button class="cta-button" onclick="analyzeProtein()">Berechnen</button>
+                        </div>
+
+                        <div id="protein-results" class="tool-results"></div>
+                    </div>
+                </div>
+
+                <!-- Primer Designer Tool -->
+                <div class="tool-content" id="primer-tool">
+                    <div class="tool-card fade-in">
+                        <h3>PCR Primer Analyzer</h3>
+                        <p class="tool-description">Analysieren Sie Primer-Eigenschaften: Tm, GC-Gehalt, Selbstkomplementarität</p>
+                        
+                        <div class="tool-input-group">
+                            <label for="primer-sequence">Primer Sequenz:</label>
+                            <input type="text" id="primer-sequence" placeholder="z.B. ATGCGATCGATCG">
+                            <button class="cta-button" onclick="analyzePrimer()">Analysieren</button>
+                        </div>
+
+                        <div id="primer-results" class="tool-results"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Tools Section Styles */
+            .tools-tabs {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .tool-tab {
+                background-color: var(--bg-tertiary);
+                color: var(--text-secondary);
+                border: 1px solid var(--border-color);
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .tool-tab:hover {
+                border-color: var(--accent-green);
+                color: var(--text-primary);
+            }
+
+            .tool-tab.active {
+                background-color: var(--accent-green);
+                color: white;
+                border-color: var(--accent-green);
+            }
+
+            .tool-content {
+                display: none;
+            }
+
+            .tool-content.active {
+                display: block;
+            }
+
+            .tool-card {
+                background-color: var(--bg-tertiary);
+                padding: 2rem;
+                border: 1px solid var(--border-color);
+                margin: 0 auto;
+                max-width: 800px;
+            }
+
+            .tool-card h3 {
+                color: var(--text-primary);
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+            }
+
+            .tool-description {
+                color: var(--text-secondary);
+                margin-bottom: 2rem;
+                font-size: 0.95rem;
+            }
+
+            .tool-input-group {
+                margin-bottom: 2rem;
+            }
+
+            .tool-input-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: var(--text-primary);
+                font-weight: 500;
+            }
+
+            .tool-input-group textarea,
+            .tool-input-group input[type="text"] {
+                width: 100%;
+                padding: 0.875rem;
+                background-color: var(--bg-primary);
+                border: 1px solid var(--border-color);
+                color: var(--text-primary);
+                font-size: 1rem;
+                font-family: 'Courier New', monospace;
+                margin-bottom: 1rem;
+                transition: border-color 0.3s ease;
+            }
+
+            .tool-input-group textarea:focus,
+            .tool-input-group input[type="text"]:focus {
+                outline: none;
+                border-color: var(--accent-green);
+            }
+
+            .tool-results {
+                background-color: var(--bg-primary);
+                border: 1px solid var(--border-color);
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+                min-height: 100px;
+                display: none;
+            }
+
+            .tool-results.show {
+                display: block;
+            }
+
+            .result-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .result-item:last-child {
+                border-bottom: none;
+            }
+
+            .result-label {
+                color: var(--text-secondary);
+                font-weight: 500;
+            }
+
+            .result-value {
+                color: var(--accent-green);
+                font-family: 'Courier New', monospace;
+                font-weight: 500;
+            }
+
+            .error-message {
+                color: #e74c3c;
+                padding: 1rem;
+                background-color: rgba(231, 76, 60, 0.1);
+                border-left: 4px solid #e74c3c;
+                margin-top: 1rem;
+            }
+
+            .success-message {
+                color: var(--accent-green);
+                padding: 1rem;
+                background-color: rgba(106, 176, 76, 0.1);
+                border-left: 4px solid var(--accent-green);
+                margin-top: 1rem;
+            }
+
+            @media (max-width: 768px) {
+                .tools-tabs {
+                    flex-direction: column;
+                }
+
+                .tool-tab {
+                    width: 100%;
+                }
+
+                .tool-card {
+                    padding: 1.5rem;
+                }
+            }
+        </style>
+
+        <script>
+            // Tab Switching
+            document.querySelectorAll('.tool-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tool-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding tool content
+                    const toolId = this.dataset.tool + '-tool';
+                    document.getElementById(toolId).classList.add('active');
+                });
+            });
+
+            // DNA Analyzer Functions
+            function analyzeDNA() {
+                const sequence = document.getElementById('dna-sequence').value.toUpperCase().replace(/\s/g, '');
+                const resultsDiv = document.getElementById('dna-results');
+                
+                // Validate sequence
+                if (!sequence) {
+                    resultsDiv.innerHTML = '<div class="error-message">Bitte geben Sie eine DNA-Sequenz ein.</div>';
+                    resultsDiv.classList.add('show');
+                    return;
+                }
+                
+                if (!/^[ATGC]+$/.test(sequence)) {
+                    resultsDiv.innerHTML = '<div class="error-message">Ungültige DNA-Sequenz. Nur A, T, G, C sind erlaubt.</div>';
+                    resultsDiv.classList.add('show');
+                    return;
+                }
+                
+                // Calculate properties
+                const length = sequence.length;
+                const aCount = (sequence.match(/A/g) || []).length;
+                const tCount = (sequence.match(/T/g) || []).length;
+                const gCount = (sequence.match(/G/g) || []).length;
+                const cCount = (sequence.match(/C/g) || []).length;
+                const gcContent = (((gCount + cCount) / length) * 100).toFixed(2);
+                
+                // Calculate Tm (Wallace rule for sequences < 14bp, or basic formula for longer)
+                let tm;
+                if (length < 14) {
+                    tm = (aCount + tCount) * 2 + (gCount + cCount) * 4;
+                } else {
+                    tm = 64.9 + 41 * (gCount + cCount - 16.4) / length;
+                }
+                
+                // Reverse complement
+                const complement = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'};
+                const reverseComplement = sequence.split('').reverse().map(base => complement[base]).join('');
+                
+                // Display results
+                resultsDiv.innerHTML = `
+                    <div class="success-message">Analyse erfolgreich abgeschlossen!</div>
+                    <div class="result-item">
+                        <span class="result-label">Länge:</span>
+                        <span class="result-value">${length} bp</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">GC-Gehalt:</span>
+                        <span class="result-value">${gcContent}%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">A:</span>
+                        <span class="result-value">${aCount} (${((aCount/length)*100).toFixed(1)}%)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">T:</span>
+                        <span class="result-value">${tCount} (${((tCount/length)*100).toFixed(1)}%)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">G:</span>
+                        <span class="result-value">${gCount} (${((gCount/length)*100).toFixed(1)}%)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">C:</span>
+                        <span class="result-value">${cCount} (${((cCount/length)*100).toFixed(1)}%)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Schmelztemperatur (Tm):</span>
+                        <span class="result-value">${tm.toFixed(1)}°C</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Reverse Complement:</span>
+                        <span class="result-value" style="word-break: break-all;">${reverseComplement}</span>
+                    </div>
+                `;
+                resultsDiv.classList.add('show');
+            }
+
+            // Protein Calculator Functions
+            function analyzeProtein() {
+                const sequence = document.getElementById('protein-sequence').value.toUpperCase().replace(/\s/g, '');
+                const resultsDiv = document.getElementById('protein-results');
+                
+                // Validate sequence
+                if (!sequence) {
+                    resultsDiv.innerHTML = '<div class="error-message">Bitte geben Sie eine Aminosäure-Sequenz ein.</div>';
+                    resultsDiv.classList.add('show');
+                    return;
+                }
+                
+                const validAA = 'ACDEFGHIKLMNPQRSTVWY';
+                if (![...sequence].every(aa => validAA.includes(aa))) {
+                    resultsDiv.innerHTML = '<div class="error-message">Ungültige Aminosäure-Sequenz. Verwenden Sie Ein-Buchstaben-Codes.</div>';
+                    resultsDiv.classList.add('show');
+                    return;
+                }
+                
+                // Molecular weights (average isotopic masses)
+                const aaWeights = {
+                    'A': 89.09, 'C': 121.15, 'D': 133.10, 'E': 147.13, 'F': 165.19,
+                    'G': 75.07, 'H': 155.16, 'I': 131.17, 'K': 146.19, 'L': 131.17,
+                    'M': 149.21, 'N': 132.12, 'P': 115.13, 'Q': 146.15, 'R': 174.20,
+                    'S': 105.09, 'T': 119.12, 'V': 117.15, 'W': 204.23, 'Y': 181.19
+                };
+                
+                // Calculate molecular weight
+                let mw = 0;
+                for (let aa of sequence) {
+                    mw += aaWeights[aa];
+                }
+                // Subtract water molecules (n-1 peptide bonds)
+                mw -= (sequence.length - 1) * 18.015;
+                
+                // Count amino acids
+                const aaCounts = {};
+                for (let aa of sequence) {
+                    aaCounts[aa] = (aaCounts[aa] || 0) + 1;
+                }
+                
+                // Calculate hydrophobicity (Kyte-Doolittle scale)
+                const hydrophobicity = {
+                    'A': 1.8, 'C': 2.5, 'D': -3.5, 'E': -3.5, 'F': 2.8,
+                    'G': -0.4, 'H': -3.2, 'I': 4.5, 'K': -3.9, 'L': 3.8,
+                    'M': 1.9, 'N': -3.5, 'P': -1.6, 'Q': -3.5, 'R': -4.5,
+                    'S': -0.8, 'T': -0.7, 'V': 4.2, 'W': -0.9, 'Y': -1.3
+                };
+                
+                let totalHydrophobicity = 0;
+                for (let aa of sequence) {
+                    totalHydrophobicity += hydrophobicity[aa];
+                }
+                const avgHydrophobicity = (totalHydrophobicity / sequence.length).toFixed(2);
+                
+                // Display results
+                resultsDiv.innerHTML = `
+                    <div class="success-message">Berechnung erfolgreich abgeschlossen!</div>
+                    <div class="result-item">
+                        <span class="result-label">Länge:</span>
+                        <span class="result-value">${sequence.length} Aminosäuren</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Molekulargewicht:</span>
+                        <span class="result-value">${mw.toFixed(2)} Da</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Molekulargewicht:</span>
+                        <span class="result-value">${(mw/1000).toFixed(2)} kDa</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Durchschn. Hydrophobizität:</span>
+                        <span class="result-value">${avgHydrophobicity} (Kyte-Doolittle)</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Häufigste Aminosäure:</span>
+                        <span class="result-value">${Object.entries(aaCounts).sort((a,b) => b[1]-a[1])[0][0]} (${Object.entries(aaCounts).sort((a,b) => b[1]-a[1])[0][1]}x)</span>
+                    </div>
+                `;
+                resultsDiv.classList.add('show');
+            }
+
+            // Primer Analyzer Functions
+            function analyzePrimer() {
+                const sequence = document.getElementById('primer-sequence').value.toUpperCase().replace(/\s/g, '');
+                const resultsDiv = document.getElementById('primer-results');
+                
+                // Validate sequence
+                if (!sequence) {
+                    resultsDiv.innerHTML = '<div class="error-message">Bitte geben Sie eine Primer-Sequenz ein.</div>';
+                    resultsDiv.classList.add('show');
+                    return;
+                }
+                
+                if (!/^[ATGC]+$/.test(sequence)) {
+                    resultsDiv.innerHTML = '<div class="error-message">Ungültige Primer-Sequenz. Nur A, T, G, C sind erlaubt.</div>';
+                    resultsDiv.classList.add('show');
+                    return;
+                }
+                
+                const length = sequence.length;
+                const gCount = (sequence.match(/G/g) || []).length;
+                const cCount = (sequence.match(/C/g) || []).length;
+                const gcContent = (((gCount + cCount) / length) * 100).toFixed(2);
+                
+                // Calculate Tm (basic nearest-neighbor approximation)
+                let tm;
+                if (length < 14) {
+                    tm = ((sequence.match(/A/g) || []).length + (sequence.match(/T/g) || []).length) * 2 + 
+                        (gCount + cCount) * 4;
+                } else {
+                    tm = 64.9 + 41 * (gCount + cCount - 16.4) / length;
+                }
+                
+                // Check 3' end stability (last 5 bases)
+                const threeEnd = sequence.slice(-5);
+                const threeEndGC = ((threeEnd.match(/G/g) || []).length + (threeEnd.match(/C/g) || []).length);
+                
+                // Check for self-complementarity (simple check)
+                const complement = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'};
+                const reverseComp = sequence.split('').reverse().map(base => complement[base]).join('');
+                let maxSelfComp = 0;
+                for (let i = 0; i <= sequence.length - 4; i++) {
+                    for (let j = 0; j <= reverseComp.length - 4; j++) {
+                        let matches = 0;
+                        for (let k = 0; k < 4 && i+k < sequence.length && j+k < reverseComp.length; k++) {
+                            if (sequence[i+k] === reverseComp[j+k]) matches++;
+                        }
+                        maxSelfComp = Math.max(maxSelfComp, matches);
+                    }
+                }
+                
+                // Quality assessment
+                let quality = [];
+                if (length >= 18 && length <= 24) quality.push('✓ Optimale Länge');
+                else if (length < 18) quality.push('⚠ Zu kurz (empfohlen: 18-24 bp)');
+                else quality.push('⚠ Zu lang (empfohlen: 18-24 bp)');
+                
+                if (gcContent >= 40 && gcContent <= 60) quality.push('✓ Optimaler GC-Gehalt');
+                else quality.push('⚠ GC-Gehalt außerhalb 40-60%');
+                
+                if (tm >= 50 && tm <= 65) quality.push('✓ Optimale Tm');
+                else if (tm < 50) quality.push('⚠ Tm zu niedrig');
+                else quality.push('⚠ Tm zu hoch');
+                
+                if (threeEndGC >= 2) quality.push('✓ Stabiles 3\'-Ende');
+                else quality.push('⚠ Schwaches 3\'-Ende');
+                
+                if (maxSelfComp < 4) quality.push('✓ Geringe Selbstkomplementarität');
+                else quality.push('⚠ Hohe Selbstkomplementarität');
+                
+                // Display results
+                resultsDiv.innerHTML = `
+                    <div class="success-message">Analyse erfolgreich abgeschlossen!</div>
+                    <div class="result-item">
+                        <span class="result-label">Länge:</span>
+                        <span class="result-value">${length} bp</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">GC-Gehalt:</span>
+                        <span class="result-value">${gcContent}%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Schmelztemperatur (Tm):</span>
+                        <span class="result-value">${tm.toFixed(1)}°C</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">3'-Ende GC-Gehalt:</span>
+                        <span class="result-value">${threeEndGC}/5 Basen</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Max. Selbstkomplementarität:</span>
+                        <span class="result-value">${maxSelfComp} aufeinanderfolgende Basen</span>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                        <div class="result-label" style="margin-bottom: 0.5rem;">Qualitätsbewertung:</div>
+                        ${quality.map(q => `<div style="color: ${q.startsWith('✓') ? 'var(--accent-green)' : '#f39c12'}; margin: 0.25rem 0;">${q}</div>`).join('')}
+                    </div>
+                `;
+                resultsDiv.classList.add('show');
+            }
+        </script>
 
         <section id="skills" class="section">
             <div class="container">
@@ -524,7 +1023,7 @@
                 </div>
             </div>
         </section>
-
+<!--
         <section id="projects" class="section">
             <div class="container">
                 <h2>Ausgewählte Projekte</h2>
@@ -542,7 +1041,7 @@
                 </div>
             </div>
         </section>
-
+-->
         <section id="contact" class="section">
             <div class="container">
                 <h2>Kontakt</h2>
