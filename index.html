@@ -20,6 +20,7 @@
             --text-muted: #8a9199;
             --accent-green: #6ab04c;
             --accent-green-dark: #5a9e3c;
+            --cool-blue: #64b5f6;
             --border-color: #2d3748;
             --shadow-color: rgba(0, 0, 0, 0.5);
             --max-width: 1200px;
@@ -63,11 +64,21 @@
 
         .logo {
             font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--accent-green);
+            font-weight: 600;
             text-decoration: none;
         }
-
+        
+        .logo .we {
+            color: var(--cool-blue);
+        }
+        
+        .logo .b {
+            color: white;
+        }
+        
+        .logo .io {
+            color: var(--accent-green);
+        }
         .nav-links {
             display: flex;
             list-style: none;
@@ -453,7 +464,9 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#home" class="logo">WEBIO</a>
+            <a href="#home" class="logo">
+                <span class="we">WE</span><span class="b">B</span><span class="io">IO</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Über uns</a></li>
@@ -469,7 +482,7 @@
         <section id="home" class="hero">
             <div class="container">
                 <h1 class="fade-in">
-                    <span class="company-name">WEBIO</span> - Web Development
+                    <span class="company-name"><span style="color: var(--cool-blue);">WE</span><span style="color: white;">B</span><span style="color: var(--accent-green);">IO</span></span> - Web Development
                 </h1>
                 <p class="fade-in">Professionelle Web-Lösungen für Life Sciences von Matthias Zehmisch</p>
                 <a href="#contact" class="cta-button fade-in">Projekt starten</a>
