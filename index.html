@@ -1083,7 +1083,6 @@
                         </div>
                         <input type="hidden" name="_subject" value="Neue Anfrage von WEBIO Website">
                         <input type="hidden" name="_replyto" value="matthias@webio-ug.de">
-                        <input type="hidden" name="_next" value="https://webio-ug.de/thanks.html">
                         <button type="submit" class="cta-button">Nachricht senden</button>
                     </form>
                 </div>
@@ -1142,8 +1141,32 @@
             observer.observe(el);
         });
 
-        // Form submission is handled by Formspree
-        // The form will redirect to a thank you page after submission
+        // Form submission with custom redirect
+        const form = document.querySelector('#contact form');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Redirect to thank you page
+                    window.location.href = 'thanks.html';
+                } else {
+                    alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut.');
+                }
+            } catch (error) {
+                alert('Es gab ein Problem beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut.');
+            }
+        });
 
         // Header background change on scroll
         window.addEventListener('scroll', () => {
